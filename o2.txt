@@ -1,0 +1,58 @@
+Title: Sudoku2x2
+
+Domains:
+1
+D1 1..2
+
+Variables:
+4
+V11 D1
+V12 D1
+V21 D1
+V22 D1
+
+Constraints:
+4
+
+C1:
+Vars:
+2
+V11
+V12
+Reject:
+2
+1 1
+2 2
+
+C2:
+Vars:
+2
+V11
+V21
+Reject:
+2
+1 1
+2 2
+
+C3:
+Vars:
+2
+V12
+V22
+Reject:
+2
+1 1
+2 2
+
+C4:
+Vars:
+2
+V21
+V22
+Reject:
+2
+1 1
+2 2
+
+Goal:
+Satisfy
