@@ -11,3 +11,5 @@
 :V21 :value 1, 2.
 
 :V22 :value 1, 2.
+
+:V11 :mustBe 1.
