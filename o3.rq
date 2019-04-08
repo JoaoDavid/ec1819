@@ -1,0 +1,16 @@
+PREFIX : <http://www.w3.org>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX int: <http://www.w3.org/2001/XMLSchema#int>
+SELECT ?v11 ?v12 ?v21 ?v22
+WHERE {
+    :V11 :value ?v11.
+    :V12 :value ?v12.
+    :V21 :value ?v21.
+    :V22 :value ?v22.
+    FILTER(
+        ( (?v11 != "1"^^int: && ?v12 != "1"^^int:) && (?v11 != "2"^^int: && ?v12 != "2"^^int:) ) ||
+        ( (?v12 != "1"^^int: && ?v22 != "1"^^int:) && (?v11 != "2"^^int: && ?v22 != "2"^^int:) ) ||
+        ( (?v21 != "1"^^int: && ?v22 != "1"^^int:) && (?v21 != "2"^^int: && ?v22 != "2"^^int:) )
+
+    )
+}
