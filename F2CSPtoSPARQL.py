@@ -3,6 +3,7 @@ class Domain():
         self.name = name
         self.values = range(start,end+1)
         self.vars = []
+        
 
     def addVariable(self,variable):
         #print("IN ADD VAriable")
@@ -30,12 +31,47 @@ class Constraint:
         self.type = ""
         self.vars = []
         self.values = [[]]
+        self.first = ""
+        self.second = ""
+        self.third = ""
     
     def addVar(self, var):
         self.vars.append(var)
 
     def addValue(self, value):
         self.values.append(value)
+
+    def setType(self,type):
+        self.type = type
+        if self.type == "Reject:":
+            self.first = " != "
+            self.second = " || "
+            self.third = " && "
+        elif self.type == "Accept:":
+            self.first = " == "
+            self.second = " && "
+            self.third = " || "
+
+    def __str__(self):
+        res = "( "
+        for i in range(len(self.values)):
+            print(str(i) + " tou aqui")
+            res += "("
+            for j in range(len(self.vars)):
+                res += "?" + self.vars[j] +  self.first +  self.values[i][j]
+                print(res)
+                if j <= len(self.vars):
+                    res += self.second
+                else:
+                    res += ")"
+
+            if i <= len(self.values):
+                res += self.third
+            else:
+                res += " )"
+
+
+
 
 
 class F2CSPtoRDF:
@@ -70,23 +106,23 @@ class F2CSPtoRDF:
         self.fileOutRDF.write("\t" + ":value " + str(values[0]) + "." + "\n")  
 
     def parseConstraints(self, file, nConst):
+        
         nConstParsed = 0
         for line in file:
+            constraint = Constraint()
             if("Vars:" in line):
                 if nConstParsed < nConst:
                     nConstParsed += 1
                     nVars = int(file.readline())
-                    vars = []
                     for x in range(nVars):
-                        vars.append(file.readline().rstrip('\n'))
-                    if "Reject:" in file.readline():
-                        self.writeReject(file, vars)
-                    else:
-                        nValues = int(file.readline())
-                        values = []
-                        for x in range(nValues):
-                            values.append(file.readline().rstrip('\n'))
-                        self.writeAccept(file, vars, values)
+                        var = file.readline().rstrip('\n')
+                        constraint.addVar(var)
+                    constraint.setType(file.readline())
+                    nValues = int(file.readline())
+                    for x in range(nValues):
+                        lineValue = file.readline().rstrip('\n')
+                        constraint.addValue(lineValue.split())
+                    file.write(str(constraint))
 
     def run(self):
         #self.inFileName = input("Enter input file name:")
@@ -127,5 +163,15 @@ class F2CSPtoRDF:
 
 
             
-scriptRun = F2CSPtoRDF()
-scriptRun.run()
+#scriptRun = F2CSPtoRDF()
+#scriptRun.run()
+
+constraint = Constraint()
+constraint.setType("Reject:")
+constraint.addVar("V11")
+constraint.addVar("V12")
+constraint.addValue([1,1])
+constraint.addValue([2,2])
+constraint.addValue([3,3])
+constraint.addValue([4,4])
+print(str(constraint))
