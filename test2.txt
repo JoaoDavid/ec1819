@@ -8,7 +8,6 @@ X D1
 Y D1
 Constraints:
 2
-4
 C01:
 Vars:
 2
