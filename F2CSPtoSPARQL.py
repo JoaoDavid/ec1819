@@ -6,8 +6,6 @@ class Domain():
         
 
     def addVariable(self,variable):
-        #print("IN ADD VAriable")
-        #print(variable)
         self.vars.append(variable)
 
     def getValues(self):
@@ -15,6 +13,13 @@ class Domain():
 
     def getVars(self):
         return vars
+
+    def strSelectVariables(self):
+        print("vars"+str(self.vars))
+        res = ""
+        for v in self.vars:
+            res += "?" + v + " "
+        return res
 
     def __str__(self):
         res = ":" + self.name + " rdf:type :Domain ;\n" + "\t:values "
@@ -26,11 +31,12 @@ class Domain():
         res += " :" + self.vars[-1] + ".\n\n"
         return res
 
+#Constraint ----------------------------------------------------------
 class Constraint:
     def __init__(self):
-        self.type = ""
+        self.typeCons = ""
         self.vars = []
-        self.values = [[]]
+        self.values = []
         self.first = ""
         self.second = ""
         self.third = ""
@@ -41,34 +47,34 @@ class Constraint:
     def addValue(self, value):
         self.values.append(value)
 
-    def setType(self,type):
-        self.type = type
-        if self.type == "Reject:":
+    def setTypeCons(self,typeCons):
+        self.typeCons = typeCons
+        if self.typeCons == "Reject:\n":
             self.first = " != "
             self.second = " || "
             self.third = " && "
-        elif self.type == "Accept:":
-            self.first = " == "
+        elif self.typeCons == "Accept:\n":
+            self.first = " = "
             self.second = " && "
             self.third = " || "
 
     def __str__(self):
-        res = "( "
+        print(self.values)
+        print(self.vars)
+        res = "\t\t( "
         for i in range(len(self.values)):
-            print(str(i) + " tou aqui")
             res += "("
             for j in range(len(self.vars)):
-                res += "?" + self.vars[j] +  self.first +  self.values[i][j]
-                print(res)
-                if j <= len(self.vars):
-                    res += self.second
+                res += "?" + str(self.vars[j]) +  self.first +  str(self.values[i][j])
+                if j == len(self.vars) - 1:
+                    res += ")"                    
                 else:
-                    res += ")"
+                    res += self.second
 
-            if i <= len(self.values):
+            if i != len(self.values) - 1:
                 res += self.third
-            else:
-                res += " )"
+        res += " )\n"
+        return res
 
 
 
@@ -76,34 +82,16 @@ class Constraint:
 
 class F2CSPtoRDF:
     def __init__(self):
-        self.inFileName = "o4.txt"
-        self.outFileName = "rdf4"
+        self.inFileName = ""
+        self.outFileName = ""
         self.domains = {}
-        self.fileOutRDF = open(self.outFileName + ".ttl","w+")
-        self.fileOutRDF.write("@prefix : <http://www.w3.org> .\n")
-        self.fileOutRDF.write("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n")
-        self.fileOutSPAQRL = open(self.outFileName + ".rq","w+")
-        self.fileOutSPAQRL.write("PREFIX : <http://www.w3.org>\n")
-        self.fileOutSPAQRL.write("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\n")
+        self.fileOutRDF = None
+        self.fileOutSPAQRL = None
+
 
     def writeDomains(self):
         for d in self.domains.keys():
             self.fileOutRDF.write(str(self.domains[d]))
-            #self.fileOutRDF.write(":" + d.name + " rdf:type :Domain ;\n")
-            #self.fileOutRDF.write(":values " + ",".join(str(i) for i in self.domains[d].getValues) + ";\n")
-            #self.fileOutRDF.write(":variables")
-            #for v in d.getVars():
-            #    self.fileOutRDF.write(":" + v + " ")
-            #self.fileOutRDF.write(str(d.vars))
-            #self.fileOutRDF.write(".\n\n")
-    
-    def writeReject(self, f, vars):
-        self.fileOutRDF.write(":" + vars[0] + " rdf:type :Variable ;\n")
-        self.fileOutRDF.write("\t" + ":differsFrom :" + vars[1] + ".\n\n")  
-
-    def writeAccept(self, f, vars, values):
-        self.fileOutRDF.write(":" + str(vars[0]) + " rdf:type :Variable ;\n")
-        self.fileOutRDF.write("\t" + ":value " + str(values[0]) + "." + "\n")  
 
     def parseConstraints(self, file, nConst):
         
@@ -112,26 +100,53 @@ class F2CSPtoRDF:
             constraint = Constraint()
             if("Vars:" in line):
                 if nConstParsed < nConst:
-                    nConstParsed += 1
+                    
                     nVars = int(file.readline())
                     for x in range(nVars):
                         var = file.readline().rstrip('\n')
                         constraint.addVar(var)
-                    constraint.setType(file.readline())
+                    typeCons = file.readline()
+                    constraint.setTypeCons(typeCons)
                     nValues = int(file.readline())
                     for x in range(nValues):
                         lineValue = file.readline().rstrip('\n')
                         constraint.addValue(lineValue.split())
-                    file.write(str(constraint))
+                    if nConstParsed + 1 < nConst:
+                        self.fileOutSPAQRL.write(str(constraint) + "\t\t&& \n")
+                    else:
+                        self.fileOutSPAQRL.write(str(constraint))
+                    nConstParsed += 1
+
+    def writeSelect(self):
+        self.fileOutSPAQRL.write("SELECT ")
+        for key, value in self.domains.items():
+            self.fileOutSPAQRL.write(value.strSelectVariables())
+        self.fileOutSPAQRL.write("\n")
+
+    def writeWhere(self):
+        self.fileOutSPAQRL.write("WHERE {\n")
+        for key, value in self.domains.items():
+            listVar = value.vars
+            for v in listVar:
+                self.fileOutSPAQRL.write("\t:D1 :values ?" + v + ".\n")
+        self.fileOutSPAQRL.write("\tFILTER (\n")
+
+    def writeFilter(self):
+        print("DO")
+
 
     def run(self):
-        #self.inFileName = input("Enter input file name:")
-        #self.outFileName = input("Enter output file name:")
+        self.inFileName = input("Enter input file name:")
+        self.outFileName = input("Enter output file name:")
+        self.fileOutRDF = open(self.outFileName + ".ttl","w+")
+        self.fileOutRDF.write("@prefix : <http://www.w3.org> .\n")
+        self.fileOutRDF.write("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n")
+        self.fileOutSPAQRL = open(self.outFileName + ".rq","w+")
+        self.fileOutSPAQRL.write("PREFIX : <http://www.w3.org>\n")
+        self.fileOutSPAQRL.write("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
 
         file = open(self.inFileName, "r")
-
         for line in file:
-            #print(line)
             if("Domains:" in line):
                 nDomains = int(file.readline())
                 for n in range(nDomains):
@@ -147,7 +162,12 @@ class F2CSPtoRDF:
                     self.domains[v[1]].addVariable(v[0])
                 self.writeDomains()
             if("Constraints:" in line):
+                self.writeSelect()
+                self.writeWhere()
                 self.parseConstraints(file,int(file.readline()))
+                self.fileOutSPAQRL.write("\t)\n")
+                self.fileOutSPAQRL.write("}")
+                
                 
 
                                 
@@ -163,15 +183,5 @@ class F2CSPtoRDF:
 
 
             
-#scriptRun = F2CSPtoRDF()
-#scriptRun.run()
-
-constraint = Constraint()
-constraint.setType("Reject:")
-constraint.addVar("V11")
-constraint.addVar("V12")
-constraint.addValue([1,1])
-constraint.addValue([2,2])
-constraint.addValue([3,3])
-constraint.addValue([4,4])
-print(str(constraint))
+scriptRun = F2CSPtoRDF()
+scriptRun.run()
