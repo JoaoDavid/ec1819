@@ -21,7 +21,7 @@ class InputSudokuToF2CSP:
         
         while(numbersOnSlot > 0) :
             tuple = re.split("\s", file.readline())
-            self.matrix[int(tuple[1])-1][int(tuple[0])-1] = int(tuple[2])
+            self.matrix[int(tuple[0])-1][int(tuple[1])-1] = int(tuple[2])
             numbersOnSlot -= 1
             
         file.close
@@ -111,7 +111,7 @@ class InputSudokuToF2CSP:
         for row in range(1,self.n + 1) :
             for col in range(1,self.n + 1) :
                 if self.matrix[row-1][col-1] != 0 :
-                    acceptSQUARE = acceptSQUARE + "C"+str(numberConstraints)+":\nVars:\n1\nV"+str(col)+str(row)+"\nAccept:\n1\n"+str(self.matrix[row-1][col-1])+"\n\n"
+                    acceptSQUARE = acceptSQUARE + "C"+str(numberConstraints)+":\nVars:\n1\nV"+str(row)+str(col)+"\nAccept:\n1\n"+str(self.matrix[row-1][col-1])+"\n\n"
                     numberConstraints += 1
                     
         stringTotal += acceptSQUARE
