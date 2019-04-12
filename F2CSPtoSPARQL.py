@@ -136,7 +136,7 @@ class F2CSPtoRDF:
 
 
     def run(self):
-        self.inFileName = input("Enter input file name:")
+        self.inFileName = input("Enter F2CSP file name:")
         self.outFileName = input("Enter output file name:")
         self.fileOutRDF = open(self.outFileName + ".ttl","w+")
         self.fileOutRDF.write("@prefix : <http://www.w3.org> .\n")
@@ -167,7 +167,9 @@ class F2CSPtoRDF:
                 self.parseConstraints(file,int(file.readline()))
                 self.fileOutSPAQRL.write("\t)\n")
                 self.fileOutSPAQRL.write("}")
-                
+        file.close()
+        self.fileOutRDF.close()
+        self.fileOutSPAQRL.close()
                 
 
                                 
