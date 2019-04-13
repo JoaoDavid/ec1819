@@ -1,0 +1,12 @@
+PREFIX : <http://www.w3.org>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?X ?Y 
+WHERE {
+	:D1 :values ?X.
+	:D1 :values ?Y.
+	FILTER (
+		( (?X = 1 && ?Y = 3) || (?X = 2 && ?Y = 2) || (?X = 3 && ?Y = 1) )
+		&& 
+		( (?X = 3 && ?Y = 1) || (?X = 4 && ?Y = 2) )
+	)
+}
