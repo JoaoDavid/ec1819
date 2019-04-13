@@ -1,3 +1,4 @@
+#------------------------------ Domain Class-----------------------------------
 class Domain():
     def __init__(self, name, start, end):
         self.name = name
@@ -31,7 +32,9 @@ class Domain():
         res += " :" + self.vars[-1] + ".\n\n"
         return res
 
-#Constraint ----------------------------------------------------------
+
+
+#--------------------------- Constraint Class----------------------------------
 class Constraint:
     def __init__(self):
         self.typeCons = ""
@@ -79,8 +82,8 @@ class Constraint:
 
 
 
-
-class F2CSPtoRDF:
+#----------------------------- Script itself ----------------------------------
+class MainRun:
     def __init__(self):
         self.inFileName = ""
         self.outFileName = ""
@@ -88,19 +91,16 @@ class F2CSPtoRDF:
         self.fileOutRDF = None
         self.fileOutSPAQRL = None
 
-
     def writeDomains(self):
         for d in self.domains.keys():
             self.fileOutRDF.write(str(self.domains[d]))
 
     def parseConstraints(self, file, nConst):
-        
         nConstParsed = 0
         for line in file:
             constraint = Constraint()
             if("Vars:" in line):
                 if nConstParsed < nConst:
-                    
                     nVars = int(file.readline())
                     for x in range(nVars):
                         var = file.readline().rstrip('\n')
@@ -119,21 +119,17 @@ class F2CSPtoRDF:
 
     def writeSelect(self):
         self.fileOutSPAQRL.write("SELECT ")
-        for key, value in self.domains.items():
+        for _ , value in self.domains.items():
             self.fileOutSPAQRL.write(value.strSelectVariables())
         self.fileOutSPAQRL.write("\n")
 
     def writeWhere(self):
         self.fileOutSPAQRL.write("WHERE {\n")
-        for key, value in self.domains.items():
+        for _ , value in self.domains.items():
             listVar = value.vars
             for v in listVar:
                 self.fileOutSPAQRL.write("\t:D1 :values ?" + v + ".\n")
         self.fileOutSPAQRL.write("\tFILTER (\n")
-
-    def writeFilter(self):
-        print("DO")
-
 
     def run(self):
         self.inFileName = input("Enter F2CSP file name:")
@@ -145,45 +141,33 @@ class F2CSPtoRDF:
         self.fileOutSPAQRL.write("PREFIX : <http://www.w3.org>\n")
         self.fileOutSPAQRL.write("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
 
-        file = open(self.inFileName, "r")
-        for line in file:
+        fileIn = open(self.inFileName, "r")
+        for line in fileIn:
             if("Domains:" in line):
-                nDomains = int(file.readline())
-                for n in range(nDomains):
-                    currD = file.readline()
+                nDomains = int(fileIn.readline())
+                for _ in range(nDomains):
+                    currD = fileIn.readline()
                     d = currD.split()
                     self.domains[d[0]] = Domain(d[0], int(d[1][0]),int(d[1][-1]))
             if("Variables:" in line):
-                nVars = int(file.readline())
-                for n in range(nVars):
-                    currV = file.readline()
+                nVars = int(fileIn.readline())
+                for _ in range(nVars):
+                    currV = fileIn.readline()
                     v = currV.split()
-                    #self.domains[v[1]].vars.append(v[0])
                     self.domains[v[1]].addVariable(v[0])
                 self.writeDomains()
             if("Constraints:" in line):
                 self.writeSelect()
                 self.writeWhere()
-                self.parseConstraints(file,int(file.readline()))
+                self.parseConstraints(fileIn,int(fileIn.readline()))
                 self.fileOutSPAQRL.write("\t)\n")
                 self.fileOutSPAQRL.write("}")
-        file.close()
+        fileIn.close()
         self.fileOutRDF.close()
         self.fileOutSPAQRL.close()
-                
-
-                                
-
-
-
-        #for x in self.domains.values():
-        #    print(x.vars)
-            #print(x)
-        #print(self.domains["D1"])
-
-        print("END")
+        print("SCRIPT END")
 
 
             
-scriptRun = F2CSPtoRDF()
+scriptRun = MainRun()
 scriptRun.run()

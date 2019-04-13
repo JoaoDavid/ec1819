@@ -6,11 +6,9 @@ WHERE {
 	:D1 :values ?V2.
 	:D1 :values ?V3.
 	:D1 :values ?V4.
-	FILTER(?V1 != ?V2 && ?V1 != ?V3 && ?V1 != ?V4 && ?V2 != ?V3 && ?V2 != ?V4 && ?V32 != ?V4)
-	FILTER NOT EXISTS {
-		FILTER ( (?V1 = 0 && ?V2 = 0 && ?V3 = 1) )
-	}
-	FILTER NOT EXISTS {
-		FILTER ( (?V1 = 1 && ?V2 = 1 && ?V3 = 0 && ?V4 = 0) )
-	}
+	FILTER (
+		( (?V1 != 0 || ?V2 != 0 || ?V3 != 1) )
+		&& 
+		( (?V1 != 1 || ?V2 != 1 || ?V3 != 0 || ?V4 != 0) )
+	)
 }
