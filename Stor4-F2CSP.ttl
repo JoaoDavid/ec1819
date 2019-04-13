@@ -3,5 +3,5 @@
 
 :D1 rdf:type :Domain ;
 	:values 1, 2, 3, 4, 5 ;
-	:variables :X, :Y, :Y.
+	:variables :X, :Y, :Z.
 

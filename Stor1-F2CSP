@@ -1,15 +1,19 @@
 Title: Encoding F
+
 Domains:
 1
 D0 0..1
+
 Variables:
 4
 V1 D0
 V2 D0
 V3 D0
 V4 D0
+
 Constraints:
 2
+
 C001:
 Vars:
 3
@@ -19,6 +23,7 @@ V3
 Reject:
 1
 0 0 1
+
 C002:
 Vars:
 4
@@ -29,5 +34,6 @@ V4
 Reject:
 1
 1 1 0 0
+
 Goal:
-Satisfy
+Satisfy
