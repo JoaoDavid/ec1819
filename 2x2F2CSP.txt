@@ -1,4 +1,4 @@
-Title: Sudoku2x2
+Title: 2x2F2CSP
 
 Domains:
 1

@@ -1,0 +1,18 @@
+PREFIX : <http://www.w3.org>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?V11 ?V12 ?V21 ?V22 
+WHERE {
+	:D1 :values ?V11.
+	:D1 :values ?V12.
+	:D1 :values ?V21.
+	:D1 :values ?V22.
+	FILTER (
+		( (?V11 != 1 || ?V12 != 1) && (?V11 != 2 || ?V12 != 2) )
+		&& 
+		( (?V11 != 1 || ?V21 != 1) && (?V11 != 2 || ?V21 != 2) )
+		&& 
+		( (?V12 != 1 || ?V22 != 1) && (?V12 != 2 || ?V22 != 2) )
+		&& 
+		( (?V21 != 1 || ?V22 != 1) && (?V21 != 2 || ?V22 != 2) )
+	)
+}
