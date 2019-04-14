@@ -61,9 +61,9 @@ class Constraint:
             self.second = " && "
             self.third = " || "
 
-    def __str__(self):
-        print(self.values)
+    def __str__(self):        
         print(self.vars)
+        print(self.values)
         res = "\t\t( "
         for i in range(len(self.values)):
             res += "("
@@ -125,10 +125,10 @@ class MainRun:
 
     def writeWhere(self):
         self.fileOutSPAQRL.write("WHERE {\n")
-        for _ , value in self.domains.items():
+        for key , value in self.domains.items():
             listVar = value.vars
             for v in listVar:
-                self.fileOutSPAQRL.write("\t:D1 :values ?" + v + ".\n")
+                self.fileOutSPAQRL.write("\t:" + key + " :values ?" + v + ".\n")
         self.fileOutSPAQRL.write("\tFILTER (\n")
 
     def run(self):
