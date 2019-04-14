@@ -3,5 +3,13 @@
 
 :D0 rdf:type :Domain ;
 	:values 0, 1 ;
-	:variables :V1, :V2, :V3, :V4.
+	:variables :V1, :V2.
+
+:D1 rdf:type :Domain ;
+	:values 0, 1 ;
+	:variables :V4.
+
+:D2 rdf:type :Domain ;
+	:values 0, 1, 2, 3, 4, 5 ;
+	:variables :V3.
 
