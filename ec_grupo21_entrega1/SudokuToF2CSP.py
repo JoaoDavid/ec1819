@@ -21,7 +21,7 @@ class InputSudokuToF2CSP:
         
         while(numbersOnSlot > 0) :
             tuple = re.split("\s", file.readline())
-            self.matrix[int(tuple[0])-1][int(tuple[1])-1] = int(tuple[2])
+            self.matrix[int(tuple[1])-1][int(tuple[0])-1] = int(tuple[2])
             numbersOnSlot -= 1
             
         file.close
@@ -36,7 +36,7 @@ class InputSudokuToF2CSP:
         f.write("Variables:\n"+str(self.n*self.n)+"\n") #Variaveis
         for i in range(1,self.n + 1) :
             for j in range(1,self.n + 1) :
-                f.write("V"+str(i)+str(j)+" D1\n")
+                f.write("V"+str(i)+"-"+str(j)+" D1\n")
         
         f.write("\n")
         
@@ -52,7 +52,7 @@ class InputSudokuToF2CSP:
                 #Restricoes da Linha
                 resColl = col+1
                 for resCol in range(resColl,self.n + 1) :
-                    constraintsROW = constraintsROW + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+str(col)+"\n"+"V"+str(row)+str(resCol)+"\nReject:\n" + str(self.n) +"\n"
+                    constraintsROW = constraintsROW + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+"-"+str(col)+"\n"+"V"+str(row)+"-"+str(resCol)+"\nReject:\n" + str(self.n) +"\n"
                     
                     for c in range(1,self.n+1) : #1..9 Rejects
                         constraintsROW = constraintsROW + str(c) + " " + str(c) + "\n"
@@ -66,7 +66,7 @@ class InputSudokuToF2CSP:
                 #Restricoes da Coluna
                 resRows = row+1
                 for resRow in range(resRows,self.n + 1) :
-                    constraintsCOLlUMN = constraintsCOLlUMN + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+str(col)+"\n"+"V"+str(resRow)+str(col)+"\nReject:\n" + str(self.n) +"\n"
+                    constraintsCOLlUMN = constraintsCOLlUMN + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+"-"+str(col)+"\n"+"V"+str(resRow)+"-"+str(col)+"\nReject:\n" + str(self.n) +"\n"
                     
                     for r in range(1,self.n+1) :
                         constraintsCOLlUMN = constraintsCOLlUMN + str(r) + " " + str(r) + "\n"
@@ -87,7 +87,7 @@ class InputSudokuToF2CSP:
                     
                     while(backCols %  math.sqrt(self.n) != 1) : #numero de Colunas entre 0 e o numero
                         backCols -= 1
-                        constraintsSQUARE = constraintsSQUARE + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+str(col)+"\n"+"V"+str(frontRows)+str(backCols)+"\nReject:\n" + str(self.n) +"\n"
+                        constraintsSQUARE = constraintsSQUARE + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+"-"+str(col)+"\n"+"V"+str(frontRows)+"-"+str(backCols)+"\nReject:\n" + str(self.n) +"\n"
                         
                         for b in range(1,self.n+1) :
                             constraintsSQUARE = constraintsSQUARE + str(b) + " " + str(b) + "\n"
@@ -97,7 +97,7 @@ class InputSudokuToF2CSP:
         
                     while(frontCols %  math.sqrt(self.n) != 0) : #numero de Colunas entre o numero e n
                         frontCols += 1
-                        constraintsSQUARE = constraintsSQUARE + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+str(col)+"\n"+"V"+str(frontRows)+str(frontCols)+"\nReject:\n" + str(self.n) +"\n"
+                        constraintsSQUARE = constraintsSQUARE + "C"+str(numberConstraints)+":\nVars:\n2\n"+"V"+str(row)+"-"+str(col)+"\n"+"V"+str(frontRows)+"-"+str(frontCols)+"\nReject:\n" + str(self.n) +"\n"
                         
                         for fr in range(1,self.n+1) :
                             constraintsSQUARE = constraintsSQUARE + str(fr) + " " + str(fr) +"\n"
@@ -111,7 +111,7 @@ class InputSudokuToF2CSP:
         for row in range(1,self.n + 1) :
             for col in range(1,self.n + 1) :
                 if self.matrix[row-1][col-1] != 0 :
-                    acceptSQUARE = acceptSQUARE + "C"+str(numberConstraints)+":\nVars:\n1\nV"+str(row)+str(col)+"\nAccept:\n1\n"+str(self.matrix[row-1][col-1])+"\n\n"
+                    acceptSQUARE = acceptSQUARE + "C"+str(numberConstraints)+":\nVars:\n1\nV"+str(row)+"-"+str(col)+"\nAccept:\n1\n"+str(self.matrix[row-1][col-1])+"\n\n"
                     numberConstraints += 1
                     
         stringTotal += acceptSQUARE

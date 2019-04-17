@@ -1,7 +1,0 @@
-@prefix : <http://www.w3.org> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-:D1 rdf:type :Domain ;
-	:values 1, 2, 3, 4, 5 ;
-	:variables :v1e1, :v1e2, :v1e3, :v1e4, :v1e5, :v2e1, :v2e2, :v2e3, :v2e4, :v2e5, :v3e1, :v3e2, :v3e3, :v3e4, :v3e5, :v4e1, :v4e2, :v4e3, :v4e4, :v4e5, :v5e1, :v5e2, :v5e3, :v5e4, :v5e5.
-
