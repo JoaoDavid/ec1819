@@ -64,19 +64,31 @@ class Constraint:
     def __str__(self):        
         print(self.vars)
         print(self.values)
-        res = "\t\t( "
-        for i in range(len(self.values)):
-            res += "("
-            for j in range(len(self.vars)):
-                res += "?" + str(self.vars[j]) +  self.first +  str(self.values[i][j])
-                if j == len(self.vars) - 1:
-                    res += ")"                    
-                else:
-                    res += self.second
+        res = ""
+        #if self.typeCons == "Reject:\n":
+         #   res += "ObjectComplementOf("
+        #if len(self.vars) > 1:
+        #    res += "ObjectIntersectionOf("
 
-            if i != len(self.values) - 1:
-                res += self.third
-        res += " )\n"
+        for i in range(len(self.values)):
+            if self.typeCons == "Reject:\n":
+                res += " ObjectComplementOf("
+            if len(self.vars) > 1:
+                res += " ObjectIntersectionOf("
+            for j in range(len(self.vars)):
+                res += " ObjectHasValue("
+                res += ":" + self.vars[j]
+                res += " "
+                res += ":" + "dominio" + "val" + str(self.values[i][j])
+            if len(self.vars) > 1:
+                res += ")"
+            if self.typeCons == "Reject:\n":
+                res += ")"
+
+        #if len(self.vars) > 1:
+        #    res += ")"
+        #if self.typeCons == "Reject:\n":
+        #    res += ")"
         return res
 
 
@@ -89,13 +101,14 @@ class MainRun:
         self.outFileName = ""
         self.domains = {}
         self.fileOutOWL = None
-        self.fileOutSPAQRL = None
 
     def writeDomains(self):
         for d in self.domains.keys():
             self.fileOutOWL.write(str(self.domains[d]))
 
     def parseConstraints(self, file, nConst):
+        if nConst > 1:
+            self.fileOutOWL.write(" ObjectIntersectionOf(")
         nConstParsed = 0
         for line in file:
             constraint = Constraint()
@@ -111,6 +124,7 @@ class MainRun:
                     for x in range(nValues):
                         lineValue = file.readline().rstrip('\n')
                         constraint.addValue(lineValue.split())
+                    self.fileOutOWL.write(str(constraint))
                     if nConstParsed + 1 < nConst:
                         print()
                         #self.fileOutSPAQRL.write(str(constraint) + "\t\t&& \n")
@@ -118,20 +132,9 @@ class MainRun:
                         print()
                         #self.fileOutSPAQRL.write(str(constraint))
                     nConstParsed += 1
+        if nConst > 1:
+            self.fileOutOWL.write(")")
 
-    def writeSelect(self):
-        self.fileOutSPAQRL.write("SELECT ")
-        for _ , value in self.domains.items():
-            self.fileOutSPAQRL.write(value.strSelectVariables())
-        self.fileOutSPAQRL.write("\n")
-
-    def writeWhere(self):
-        self.fileOutSPAQRL.write("WHERE {\n")
-        for key , value in self.domains.items():
-            listVar = value.vars
-            for v in listVar:
-                self.fileOutSPAQRL.write("\t:" + key + " :values ?" + v + ".\n")
-        self.fileOutSPAQRL.write("\tFILTER (\n")
 
     def writeHashTagSeparator(self,title):
         self.fileOutOWL.write("############################\n")
@@ -147,7 +150,7 @@ class MainRun:
                 self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
                 self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + ")\n\n")
 
-    def writeClasses(self):
+    def writeClasses(self,fileIn):
         self.writeHashTagSeparator("Classes")
         for _ , d in self.domains.items():
             self.fileOutOWL.write("# Class: :" + d.name + " (:" + d.name + ")\n\n")
@@ -156,7 +159,7 @@ class MainRun:
                 self.fileOutOWL.write(":" + d.name.lower() + "val" + str(val) + " ")
             self.fileOutOWL.write("))\n\n")
         self.fileOutOWL.write("# Class: :Fml (:Fml)\n\n")
-        self.writeFml()
+        self.writeFml(fileIn)
         self.fileOutOWL.write("# Class: :Var (:Var)\n\n")
         for _ , d in self.domains.items():
             for v in d.vars:
@@ -182,8 +185,12 @@ class MainRun:
                 self.fileOutOWL.write(":" + d.name.lower() + v + " ")
             self.fileOutOWL.write(")\n")
 
-    def writeFml(self):
-        self.fileOutOWL.write("EquivalentClasses(:Fml ObjectInt... TODO\n\n")
+    def writeFml(self,fileIn):
+        self.fileOutOWL.write("EquivalentClasses(:Fml")
+        n = int(fileIn.readline())
+        print(n)
+        self.parseConstraints(fileIn,n)
+       # self.fileOutOWL.write("EquivalentClasses(:Fml")
 
 
     def run(self):
@@ -233,8 +240,7 @@ class MainRun:
                 self.fileOutOWL.write("\n")
                 
             if("Constraints:" in line):
-                self.parseConstraints(fileIn,int(fileIn.readline()))
-                self.writeClasses()
+                self.writeClasses(fileIn)
                 self.writeNamesIndividuals()
         self.fileOutOWL.write(")")
         fileIn.close()

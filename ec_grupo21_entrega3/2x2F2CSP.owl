@@ -58,9 +58,7 @@ EquivalentClasses(:D1 ObjectOneOf(:d1val1 :d1val2 ))
 
 # Class: :Fml (:Fml)
 
-EquivalentClasses(:Fml ObjectInt... TODO
-
-# Class: :Var (:Var)
+EquivalentClasses(:Fml ObjectIntersectionOf( ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V11 :dominioval1 ObjectHasValue(:V12 :dominioval1)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V11 :dominioval2 ObjectHasValue(:V12 :dominioval2)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V11 :dominioval1 ObjectHasValue(:V21 :dominioval1)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V11 :dominioval2 ObjectHasValue(:V21 :dominioval2)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V12 :dominioval1 ObjectHasValue(:V22 :dominioval1)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V12 :dominioval2 ObjectHasValue(:V22 :dominioval2)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V21 :dominioval1 ObjectHasValue(:V22 :dominioval1)) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:V21 :dominioval2 ObjectHasValue(:V22 :dominioval2)))# Class: :Var (:Var)
 
 EquivalentClasses(:Var ObjectExactCardinality(1 :v11 :D1))
 EquivalentClasses(:Var ObjectExactCardinality(1 :v12 :D1))
