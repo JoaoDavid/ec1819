@@ -1,0 +1,200 @@
+Prefix(:=<http://www.semanticweb.org/group21/ontologies/2019/4/batata#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org>
+
+Declaration(Class(:D1))
+Declaration(Class(:Fml))
+Declaration(Class(:Var))
+Declaration(ObjectProperty(:v11))
+Declaration(ObjectProperty(:v12))
+Declaration(ObjectProperty(:v13))
+Declaration(ObjectProperty(:v14))
+Declaration(ObjectProperty(:v21))
+Declaration(ObjectProperty(:v22))
+Declaration(ObjectProperty(:v23))
+Declaration(ObjectProperty(:v24))
+Declaration(ObjectProperty(:v31))
+Declaration(ObjectProperty(:v32))
+Declaration(ObjectProperty(:v33))
+Declaration(ObjectProperty(:v34))
+Declaration(ObjectProperty(:v41))
+Declaration(ObjectProperty(:v42))
+Declaration(ObjectProperty(:v43))
+Declaration(ObjectProperty(:v44))
+Declaration(NamedIndividual(:d1val1))
+Declaration(NamedIndividual(:d1val2))
+Declaration(NamedIndividual(:d1val3))
+Declaration(NamedIndividual(:d1val4))
+Declaration(NamedIndividual(:fml))
+Declaration(NamedIndividual(:map))
+############################
+#   Object Properties
+############################
+
+# Object Property: :v11 (:v11)
+
+FunctionalObjectProperty(:v11)
+ObjectPropertyDomain(:v11 :Var)
+ObjectPropertyRange(:v11 :D1)
+
+# Object Property: :v12 (:v12)
+
+FunctionalObjectProperty(:v12)
+ObjectPropertyDomain(:v12 :Var)
+ObjectPropertyRange(:v12 :D1)
+
+# Object Property: :v13 (:v13)
+
+FunctionalObjectProperty(:v13)
+ObjectPropertyDomain(:v13 :Var)
+ObjectPropertyRange(:v13 :D1)
+
+# Object Property: :v14 (:v14)
+
+FunctionalObjectProperty(:v14)
+ObjectPropertyDomain(:v14 :Var)
+ObjectPropertyRange(:v14 :D1)
+
+# Object Property: :v21 (:v21)
+
+FunctionalObjectProperty(:v21)
+ObjectPropertyDomain(:v21 :Var)
+ObjectPropertyRange(:v21 :D1)
+
+# Object Property: :v22 (:v22)
+
+FunctionalObjectProperty(:v22)
+ObjectPropertyDomain(:v22 :Var)
+ObjectPropertyRange(:v22 :D1)
+
+# Object Property: :v23 (:v23)
+
+FunctionalObjectProperty(:v23)
+ObjectPropertyDomain(:v23 :Var)
+ObjectPropertyRange(:v23 :D1)
+
+# Object Property: :v24 (:v24)
+
+FunctionalObjectProperty(:v24)
+ObjectPropertyDomain(:v24 :Var)
+ObjectPropertyRange(:v24 :D1)
+
+# Object Property: :v31 (:v31)
+
+FunctionalObjectProperty(:v31)
+ObjectPropertyDomain(:v31 :Var)
+ObjectPropertyRange(:v31 :D1)
+
+# Object Property: :v32 (:v32)
+
+FunctionalObjectProperty(:v32)
+ObjectPropertyDomain(:v32 :Var)
+ObjectPropertyRange(:v32 :D1)
+
+# Object Property: :v33 (:v33)
+
+FunctionalObjectProperty(:v33)
+ObjectPropertyDomain(:v33 :Var)
+ObjectPropertyRange(:v33 :D1)
+
+# Object Property: :v34 (:v34)
+
+FunctionalObjectProperty(:v34)
+ObjectPropertyDomain(:v34 :Var)
+ObjectPropertyRange(:v34 :D1)
+
+# Object Property: :v41 (:v41)
+
+FunctionalObjectProperty(:v41)
+ObjectPropertyDomain(:v41 :Var)
+ObjectPropertyRange(:v41 :D1)
+
+# Object Property: :v42 (:v42)
+
+FunctionalObjectProperty(:v42)
+ObjectPropertyDomain(:v42 :Var)
+ObjectPropertyRange(:v42 :D1)
+
+# Object Property: :v43 (:v43)
+
+FunctionalObjectProperty(:v43)
+ObjectPropertyDomain(:v43 :Var)
+ObjectPropertyRange(:v43 :D1)
+
+# Object Property: :v44 (:v44)
+
+FunctionalObjectProperty(:v44)
+ObjectPropertyDomain(:v44 :Var)
+ObjectPropertyRange(:v44 :D1)
+
+
+############################
+#   Classes
+############################
+
+# Class: :D1 (:D1)
+
+EquivalentClasses(:D1 ObjectOneOf(:d1val1 :d1val2 :d1val3 :d1val4 ))
+
+# Class: :Fml (:Fml)
+
+EquivalentClasses(:Fml ObjectIntersectionOf( ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v12 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v12 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v12 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v12 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v13 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v13 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v13 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v13 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v14 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v14 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v14 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v14 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v21 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v21 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v21 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v21 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v31 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v31 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v31 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v31 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v41 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v41 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v41 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v41 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val1) ObjectHasValue(:v22 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val2) ObjectHasValue(:v22 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val3) ObjectHasValue(:v22 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v22 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v13 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v13 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v13 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v13 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v14 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v14 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v14 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v14 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v22 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v22 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v22 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v22 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v32 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v32 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v32 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v32 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v42 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v42 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v42 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v42 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v21 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val2) ObjectHasValue(:v21 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val3) ObjectHasValue(:v21 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v12 :d1val4) ObjectHasValue(:v21 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val1) ObjectHasValue(:v14 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val2) ObjectHasValue(:v14 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v14 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val4) ObjectHasValue(:v14 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val1) ObjectHasValue(:v23 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val2) ObjectHasValue(:v23 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v23 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val4) ObjectHasValue(:v23 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val1) ObjectHasValue(:v33 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val2) ObjectHasValue(:v33 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v33 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val4) ObjectHasValue(:v33 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val1) ObjectHasValue(:v24 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val2) ObjectHasValue(:v24 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v24 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v13 :d1val4) ObjectHasValue(:v24 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val1) ObjectHasValue(:v24 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val2) ObjectHasValue(:v24 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val3) ObjectHasValue(:v24 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val4) ObjectHasValue(:v24 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val1) ObjectHasValue(:v34 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val2) ObjectHasValue(:v34 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val3) ObjectHasValue(:v34 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val4) ObjectHasValue(:v34 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val1) ObjectHasValue(:v23 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val2) ObjectHasValue(:v23 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val3) ObjectHasValue(:v23 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v14 :d1val4) ObjectHasValue(:v23 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val1) ObjectHasValue(:v22 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val2) ObjectHasValue(:v22 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v22 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val4) ObjectHasValue(:v22 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val1) ObjectHasValue(:v23 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val2) ObjectHasValue(:v23 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v23 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val4) ObjectHasValue(:v23 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val1) ObjectHasValue(:v24 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val2) ObjectHasValue(:v24 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v24 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val4) ObjectHasValue(:v24 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val1) ObjectHasValue(:v31 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val2) ObjectHasValue(:v31 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v31 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val4) ObjectHasValue(:v31 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val1) ObjectHasValue(:v41 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val2) ObjectHasValue(:v41 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v41 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v21 :d1val4) ObjectHasValue(:v41 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val1) ObjectHasValue(:v23 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val2) ObjectHasValue(:v23 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val3) ObjectHasValue(:v23 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val4) ObjectHasValue(:v23 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val1) ObjectHasValue(:v24 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val2) ObjectHasValue(:v24 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val3) ObjectHasValue(:v24 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val4) ObjectHasValue(:v24 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val1) ObjectHasValue(:v32 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val2) ObjectHasValue(:v32 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val3) ObjectHasValue(:v32 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val4) ObjectHasValue(:v32 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val1) ObjectHasValue(:v42 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val2) ObjectHasValue(:v42 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val3) ObjectHasValue(:v42 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v22 :d1val4) ObjectHasValue(:v42 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val1) ObjectHasValue(:v24 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val2) ObjectHasValue(:v24 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val3) ObjectHasValue(:v24 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val4) ObjectHasValue(:v24 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val1) ObjectHasValue(:v33 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val2) ObjectHasValue(:v33 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val3) ObjectHasValue(:v33 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val4) ObjectHasValue(:v33 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v23 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val1) ObjectHasValue(:v34 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val2) ObjectHasValue(:v34 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val3) ObjectHasValue(:v34 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val4) ObjectHasValue(:v34 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v24 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v32 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val2) ObjectHasValue(:v32 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val3) ObjectHasValue(:v32 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val4) ObjectHasValue(:v32 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v33 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val2) ObjectHasValue(:v33 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val3) ObjectHasValue(:v33 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val4) ObjectHasValue(:v33 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v34 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val2) ObjectHasValue(:v34 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val3) ObjectHasValue(:v34 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val4) ObjectHasValue(:v34 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v41 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val2) ObjectHasValue(:v41 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val3) ObjectHasValue(:v41 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val4) ObjectHasValue(:v41 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v42 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val2) ObjectHasValue(:v42 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val3) ObjectHasValue(:v42 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v31 :d1val4) ObjectHasValue(:v42 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val1) ObjectHasValue(:v33 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val2) ObjectHasValue(:v33 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val3) ObjectHasValue(:v33 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val4) ObjectHasValue(:v33 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val1) ObjectHasValue(:v34 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val2) ObjectHasValue(:v34 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val3) ObjectHasValue(:v34 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val4) ObjectHasValue(:v34 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val1) ObjectHasValue(:v42 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val2) ObjectHasValue(:v42 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val3) ObjectHasValue(:v42 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val4) ObjectHasValue(:v42 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val1) ObjectHasValue(:v41 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val2) ObjectHasValue(:v41 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val3) ObjectHasValue(:v41 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v32 :d1val4) ObjectHasValue(:v41 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val1) ObjectHasValue(:v34 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val2) ObjectHasValue(:v34 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val3) ObjectHasValue(:v34 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val4) ObjectHasValue(:v34 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v33 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v34 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val1) ObjectHasValue(:v42 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val2) ObjectHasValue(:v42 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val3) ObjectHasValue(:v42 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val4) ObjectHasValue(:v42 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v41 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val1) ObjectHasValue(:v43 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val2) ObjectHasValue(:v43 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val3) ObjectHasValue(:v43 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val4) ObjectHasValue(:v43 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v42 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v43 :d1val1) ObjectHasValue(:v44 :d1val1))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v43 :d1val2) ObjectHasValue(:v44 :d1val2))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v43 :d1val3) ObjectHasValue(:v44 :d1val3))) ObjectComplementOf( ObjectIntersectionOf( ObjectHasValue(:v43 :d1val4) ObjectHasValue(:v44 :d1val4))) ObjectHasValue(:v11 :d1val4) ObjectHasValue(:v12 :d1val1) ObjectHasValue(:v13 :d1val3) ObjectHasValue(:v14 :d1val2) ObjectHasValue(:v21 :d1val3) ObjectHasValue(:v22 :d1val2) ObjectHasValue(:v23 :d1val4) ObjectHasValue(:v24 :d1val1) ObjectHasValue(:v31 :d1val1) ObjectHasValue(:v32 :d1val3) ObjectHasValue(:v33 :d1val2) ObjectHasValue(:v34 :d1val4) ObjectHasValue(:v41 :d1val2) ObjectHasValue(:v42 :d1val4) ObjectHasValue(:v43 :d1val1)))
+
+# Class: :Var (:Var)
+
+EquivalentClasses(:Var ObjectExactCardinality(1 :v11 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v12 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v13 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v14 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v21 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v22 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v23 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v24 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v31 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v32 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v33 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v34 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v41 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v42 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v43 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v44 :D1))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :d1val1 (:d1val1)
+
+ClassAssertion(:D1 :d1val1)
+
+# Individual: :d1val2 (:d1val2)
+
+ClassAssertion(:D1 :d1val2)
+
+# Individual: :d1val3 (:d1val3)
+
+ClassAssertion(:D1 :d1val3)
+
+# Individual: :d1val4 (:d1val4)
+
+ClassAssertion(:D1 :d1val4)
+
+# Individual: :fml (:fml)
+
+ClassAssertion(:Fml :fml)
+SameIndividual(:fml :map)
+
+# Individual: :map (:map)
+
+ClassAssertion(:Var :map)
+
+
+DifferentIndividuals(:d1v11 :d1v12 :d1v13 :d1v14 :d1v21 :d1v22 :d1v23 :d1v24 :d1v31 :d1v32 :d1v33 :d1v34 :d1v41 :d1v42 :d1v43 :d1v44 )
+)
