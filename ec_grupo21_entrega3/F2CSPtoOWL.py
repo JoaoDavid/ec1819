@@ -112,9 +112,11 @@ class MainRun:
                         lineValue = file.readline().rstrip('\n')
                         constraint.addValue(lineValue.split())
                     if nConstParsed + 1 < nConst:
-                        self.fileOutSPAQRL.write(str(constraint) + "\t\t&& \n")
+                        print()
+                        #self.fileOutSPAQRL.write(str(constraint) + "\t\t&& \n")
                     else:
-                        self.fileOutSPAQRL.write(str(constraint))
+                        print()
+                        #self.fileOutSPAQRL.write(str(constraint))
                     nConstParsed += 1
 
     def writeSelect(self):
@@ -143,17 +145,46 @@ class MainRun:
                 self.fileOutOWL.write("# Object Property: :" + v + " (:" + v + ")\n\n")
                 self.fileOutOWL.write("FunctionalObjectProperty(:" + v + ")\n")
                 self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
-                self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + "\n\n")
+                self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + ")\n\n")
 
     def writeClasses(self):
         self.writeHashTagSeparator("Classes")
         for _ , d in self.domains.items():
+            self.fileOutOWL.write("# Class: :" + d.name + " (:" + d.name + ")\n\n")
             for v in d.vars:
-                self.fileOutOWL.write("# Object Property: :" + v + " (:" + v + ")\n\n")
+                self.fileOutOWL.write("EquivalentClasses(:" + d.name + " ObjectOneOf(:" + d.name.lower() + v + " :" + d.name.lower() + v + "))\n")
                 self.fileOutOWL.write("FunctionalObjectProperty(:" + v + ")\n")
                 self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
                 self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + "\n\n")
+        self.fileOutOWL.write("# Class: :Fml (:Fml)\n\n")
+        self.writeFml()
+        self.fileOutOWL.write("# Class: :Var (:Var)\n\n")
+        for _ , d in self.domains.items():
+            for v in d.vars:
+                self.fileOutOWL.write("EquivalentClasses(:Var ObjectExactCardinality(1 :" + v + " :" + d.name + "))\n")
+        self.fileOutOWL.write("\n\n")
 
+    def writeNamesIndividuals(self):
+        self.writeHashTagSeparator("Named Individuals")
+        for _ , d in self.domains.items():
+            for v in d.vars:
+                self.fileOutOWL.write("# Individual: :" + d.name.lower() + v + " (:" + d.name.lower() + v + ")\n\n")
+                self.fileOutOWL.write("ClassAssertion(:" + d.name + " :" + d.name.lower() + v + ")\n\n")
+        self.fileOutOWL.write("# Individual: :fml (:fml)\n\n")
+        self.fileOutOWL.write("ClassAssertion(:Fml :fml)\n")
+        self.fileOutOWL.write("SameIndividual(:fml :map)\n\n")
+        self.fileOutOWL.write("# Individual: :map (:map)\n\n")
+        self.fileOutOWL.write("ClassAssertion(:Var :map)\n")
+        #self.fileOutOWL.write("ObjectPropertyAssertion(:var11 :map :dom1val1) ... TODO\n") pistas sudoku
+        self.fileOutOWL.write("\n\n")
+        for _ , d in self.domains.items():
+            self.fileOutOWL.write("DifferentIndividuals(")
+            for v in d.vars:  
+                self.fileOutOWL.write(":" + d.name.lower() + v + " ")
+            self.fileOutOWL.write(")\n")
+
+    def writeFml(self):
+        self.fileOutOWL.write("EquivalentClasses(:Fml ObjectInt... TODO\n\n")
 
 
     def run(self):
@@ -198,14 +229,14 @@ class MainRun:
                 self.fileOutOWL.write("Declaration(NamedIndividual(:map))\n")
                 self.writeObjectProperties()
                 self.fileOutOWL.write("\n")
-                self.writeClasses()
+                
             if("Constraints:" in line):
                 self.parseConstraints(fileIn,int(fileIn.readline()))
-                self.fileOutSPAQRL.write("\t)\n")
-                self.fileOutSPAQRL.write("}")
+                self.writeClasses()
+                self.writeNamesIndividuals()
+        self.fileOutOWL.write(")")
         fileIn.close()
         self.fileOutOWL.close()
-        self.fileOutSPAQRL.close()
         print("SCRIPT END")
 
 

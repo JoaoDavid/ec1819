@@ -53,95 +53,286 @@ Declaration(NamedIndividual(:map))
 
 FunctionalObjectProperty(:v11)
 ObjectPropertyDomain(:v11 :Var)
-ObjectPropertyRange(:v11 :D1
+ObjectPropertyRange(:v11 :D1)
 
 # Object Property: :v12 (:v12)
 
 FunctionalObjectProperty(:v12)
 ObjectPropertyDomain(:v12 :Var)
-ObjectPropertyRange(:v12 :D1
+ObjectPropertyRange(:v12 :D1)
 
 # Object Property: :v13 (:v13)
 
 FunctionalObjectProperty(:v13)
 ObjectPropertyDomain(:v13 :Var)
-ObjectPropertyRange(:v13 :D1
+ObjectPropertyRange(:v13 :D1)
 
 # Object Property: :v14 (:v14)
 
 FunctionalObjectProperty(:v14)
 ObjectPropertyDomain(:v14 :Var)
-ObjectPropertyRange(:v14 :D1
+ObjectPropertyRange(:v14 :D1)
 
 # Object Property: :v21 (:v21)
 
 FunctionalObjectProperty(:v21)
 ObjectPropertyDomain(:v21 :Var)
-ObjectPropertyRange(:v21 :D1
+ObjectPropertyRange(:v21 :D1)
 
 # Object Property: :v22 (:v22)
 
 FunctionalObjectProperty(:v22)
 ObjectPropertyDomain(:v22 :Var)
-ObjectPropertyRange(:v22 :D1
+ObjectPropertyRange(:v22 :D1)
 
 # Object Property: :v23 (:v23)
 
 FunctionalObjectProperty(:v23)
 ObjectPropertyDomain(:v23 :Var)
-ObjectPropertyRange(:v23 :D1
+ObjectPropertyRange(:v23 :D1)
 
 # Object Property: :v24 (:v24)
 
 FunctionalObjectProperty(:v24)
 ObjectPropertyDomain(:v24 :Var)
-ObjectPropertyRange(:v24 :D1
+ObjectPropertyRange(:v24 :D1)
 
 # Object Property: :v31 (:v31)
 
 FunctionalObjectProperty(:v31)
 ObjectPropertyDomain(:v31 :Var)
-ObjectPropertyRange(:v31 :D1
+ObjectPropertyRange(:v31 :D1)
 
 # Object Property: :v32 (:v32)
 
 FunctionalObjectProperty(:v32)
 ObjectPropertyDomain(:v32 :Var)
-ObjectPropertyRange(:v32 :D1
+ObjectPropertyRange(:v32 :D1)
 
 # Object Property: :v33 (:v33)
 
 FunctionalObjectProperty(:v33)
 ObjectPropertyDomain(:v33 :Var)
-ObjectPropertyRange(:v33 :D1
+ObjectPropertyRange(:v33 :D1)
 
 # Object Property: :v34 (:v34)
 
 FunctionalObjectProperty(:v34)
 ObjectPropertyDomain(:v34 :Var)
-ObjectPropertyRange(:v34 :D1
+ObjectPropertyRange(:v34 :D1)
 
 # Object Property: :v41 (:v41)
 
 FunctionalObjectProperty(:v41)
 ObjectPropertyDomain(:v41 :Var)
-ObjectPropertyRange(:v41 :D1
+ObjectPropertyRange(:v41 :D1)
 
 # Object Property: :v42 (:v42)
 
 FunctionalObjectProperty(:v42)
 ObjectPropertyDomain(:v42 :Var)
-ObjectPropertyRange(:v42 :D1
+ObjectPropertyRange(:v42 :D1)
 
 # Object Property: :v43 (:v43)
 
 FunctionalObjectProperty(:v43)
 ObjectPropertyDomain(:v43 :Var)
-ObjectPropertyRange(:v43 :D1
+ObjectPropertyRange(:v43 :D1)
 
 # Object Property: :v44 (:v44)
 
 FunctionalObjectProperty(:v44)
 ObjectPropertyDomain(:v44 :Var)
+ObjectPropertyRange(:v44 :D1)
+
+
+############################
+#   Classes
+############################
+
+# Class: :D1 (:D1)
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v11 :d1v11))
+FunctionalObjectProperty(:v11)
+ObjectPropertyDomain(:v11 :Var)
+ObjectPropertyRange(:v11 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v12 :d1v12))
+FunctionalObjectProperty(:v12)
+ObjectPropertyDomain(:v12 :Var)
+ObjectPropertyRange(:v12 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v13 :d1v13))
+FunctionalObjectProperty(:v13)
+ObjectPropertyDomain(:v13 :Var)
+ObjectPropertyRange(:v13 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v14 :d1v14))
+FunctionalObjectProperty(:v14)
+ObjectPropertyDomain(:v14 :Var)
+ObjectPropertyRange(:v14 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v21 :d1v21))
+FunctionalObjectProperty(:v21)
+ObjectPropertyDomain(:v21 :Var)
+ObjectPropertyRange(:v21 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v22 :d1v22))
+FunctionalObjectProperty(:v22)
+ObjectPropertyDomain(:v22 :Var)
+ObjectPropertyRange(:v22 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v23 :d1v23))
+FunctionalObjectProperty(:v23)
+ObjectPropertyDomain(:v23 :Var)
+ObjectPropertyRange(:v23 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v24 :d1v24))
+FunctionalObjectProperty(:v24)
+ObjectPropertyDomain(:v24 :Var)
+ObjectPropertyRange(:v24 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v31 :d1v31))
+FunctionalObjectProperty(:v31)
+ObjectPropertyDomain(:v31 :Var)
+ObjectPropertyRange(:v31 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v32 :d1v32))
+FunctionalObjectProperty(:v32)
+ObjectPropertyDomain(:v32 :Var)
+ObjectPropertyRange(:v32 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v33 :d1v33))
+FunctionalObjectProperty(:v33)
+ObjectPropertyDomain(:v33 :Var)
+ObjectPropertyRange(:v33 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v34 :d1v34))
+FunctionalObjectProperty(:v34)
+ObjectPropertyDomain(:v34 :Var)
+ObjectPropertyRange(:v34 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v41 :d1v41))
+FunctionalObjectProperty(:v41)
+ObjectPropertyDomain(:v41 :Var)
+ObjectPropertyRange(:v41 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v42 :d1v42))
+FunctionalObjectProperty(:v42)
+ObjectPropertyDomain(:v42 :Var)
+ObjectPropertyRange(:v42 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v43 :d1v43))
+FunctionalObjectProperty(:v43)
+ObjectPropertyDomain(:v43 :Var)
+ObjectPropertyRange(:v43 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v44 :d1v44))
+FunctionalObjectProperty(:v44)
+ObjectPropertyDomain(:v44 :Var)
 ObjectPropertyRange(:v44 :D1
 
+# Class: :Fml (:Fml)
+
+EquivalentClasses(:Fml ObjectInt... TODO
+
+# Class: :Var (:Var)
+
+EquivalentClasses(:Var ObjectExactCardinality(1 :v11 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v12 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v13 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v14 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v21 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v22 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v23 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v24 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v31 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v32 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v33 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v34 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v41 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v42 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v43 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v44 :D1))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :d1v11 (:d1v11)
+
+ClassAssertion(:D1 :d1v11)
+
+# Individual: :d1v12 (:d1v12)
+
+ClassAssertion(:D1 :d1v12)
+
+# Individual: :d1v13 (:d1v13)
+
+ClassAssertion(:D1 :d1v13)
+
+# Individual: :d1v14 (:d1v14)
+
+ClassAssertion(:D1 :d1v14)
+
+# Individual: :d1v21 (:d1v21)
+
+ClassAssertion(:D1 :d1v21)
+
+# Individual: :d1v22 (:d1v22)
+
+ClassAssertion(:D1 :d1v22)
+
+# Individual: :d1v23 (:d1v23)
+
+ClassAssertion(:D1 :d1v23)
+
+# Individual: :d1v24 (:d1v24)
+
+ClassAssertion(:D1 :d1v24)
+
+# Individual: :d1v31 (:d1v31)
+
+ClassAssertion(:D1 :d1v31)
+
+# Individual: :d1v32 (:d1v32)
+
+ClassAssertion(:D1 :d1v32)
+
+# Individual: :d1v33 (:d1v33)
+
+ClassAssertion(:D1 :d1v33)
+
+# Individual: :d1v34 (:d1v34)
+
+ClassAssertion(:D1 :d1v34)
+
+# Individual: :d1v41 (:d1v41)
+
+ClassAssertion(:D1 :d1v41)
+
+# Individual: :d1v42 (:d1v42)
+
+ClassAssertion(:D1 :d1v42)
+
+# Individual: :d1v43 (:d1v43)
+
+ClassAssertion(:D1 :d1v43)
+
+# Individual: :d1v44 (:d1v44)
+
+ClassAssertion(:D1 :d1v44)
+
+# Individual: :fml (:fml)
+
+ClassAssertion(:Fml :fml)
+SameIndividual(:fml :map)
+
+# Individual: :map (:map)
+
+ClassAssertion(:Var :map)
+
+
+DifferentIndividuals(:d1v11 :d1v12 :d1v13 :d1v14 :d1v21 :d1v22 :d1v23 :d1v24 :d1v31 :d1v32 :d1v33 :d1v34 :d1v41 :d1v42 :d1v43 :d1v44 )
+)

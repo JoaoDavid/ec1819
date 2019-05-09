@@ -1,0 +1,122 @@
+Prefix(:=<http://www.semanticweb.org/group21/ontologies/2019/4/batata#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org>
+
+Declaration(Class(:D1))
+Declaration(Class(:Fml))
+Declaration(Class(:Var))
+Declaration(ObjectProperty(:v11))
+Declaration(ObjectProperty(:v12))
+Declaration(ObjectProperty(:v21))
+Declaration(ObjectProperty(:v22))
+Declaration(NamedIndividual(:D1v11))
+Declaration(NamedIndividual(:D1v12))
+Declaration(NamedIndividual(:D1v21))
+Declaration(NamedIndividual(:D1v22))
+Declaration(NamedIndividual(:fml))
+Declaration(NamedIndividual(:map))
+############################
+#   Object Properties
+############################
+
+# Object Property: :v11 (:v11)
+
+FunctionalObjectProperty(:v11)
+ObjectPropertyDomain(:v11 :Var)
+ObjectPropertyRange(:v11 :D1)
+
+# Object Property: :v12 (:v12)
+
+FunctionalObjectProperty(:v12)
+ObjectPropertyDomain(:v12 :Var)
+ObjectPropertyRange(:v12 :D1)
+
+# Object Property: :v21 (:v21)
+
+FunctionalObjectProperty(:v21)
+ObjectPropertyDomain(:v21 :Var)
+ObjectPropertyRange(:v21 :D1)
+
+# Object Property: :v22 (:v22)
+
+FunctionalObjectProperty(:v22)
+ObjectPropertyDomain(:v22 :Var)
+ObjectPropertyRange(:v22 :D1)
+
+
+############################
+#   Classes
+############################
+
+# Class: :D1 (:D1)
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v11 :d1v11))
+FunctionalObjectProperty(:v11)
+ObjectPropertyDomain(:v11 :Var)
+ObjectPropertyRange(:v11 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v12 :d1v12))
+FunctionalObjectProperty(:v12)
+ObjectPropertyDomain(:v12 :Var)
+ObjectPropertyRange(:v12 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v21 :d1v21))
+FunctionalObjectProperty(:v21)
+ObjectPropertyDomain(:v21 :Var)
+ObjectPropertyRange(:v21 :D1
+
+EquivalentClasses(:D1 ObjectOneOf(:d1v22 :d1v22))
+FunctionalObjectProperty(:v22)
+ObjectPropertyDomain(:v22 :Var)
+ObjectPropertyRange(:v22 :D1
+
+# Class: :Fml (:Fml)
+
+EquivalentClasses(:Fml ObjectInt... TODO
+
+# Class: :Var (:Var)
+
+EquivalentClasses(:Var ObjectExactCardinality(1 :v11 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v12 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v21 :D1))
+EquivalentClasses(:Var ObjectExactCardinality(1 :v22 :D1))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :d1v11 (:d1v11)
+
+ClassAssertion(:D1 :d1v11)
+
+# Individual: :d1v12 (:d1v12)
+
+ClassAssertion(:D1 :d1v12)
+
+# Individual: :d1v21 (:d1v21)
+
+ClassAssertion(:D1 :d1v21)
+
+# Individual: :d1v22 (:d1v22)
+
+ClassAssertion(:D1 :d1v22)
+
+# Individual: :fml (:fml)
+
+ClassAssertion(:Fml :fml)
+SameIndividual(:fml :map)
+
+# Individual: :map (:map)
+
+ClassAssertion(:Var :map)
+
+
+DifferentIndividuals(:d1v11 :d1v12 :d1v21 :d1v22 )
+)
