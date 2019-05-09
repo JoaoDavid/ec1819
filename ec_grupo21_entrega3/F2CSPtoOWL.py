@@ -36,13 +36,11 @@ class Domain():
 
 #--------------------------- Constraint Class----------------------------------
 class Constraint:
-    def __init__(self):
+    def __init__(self,varDom):
         self.typeCons = ""
         self.vars = []
         self.values = []
-        self.first = ""
-        self.second = ""
-        self.third = ""
+        self.varDom = varDom
     
     def addVar(self, var):
         self.vars.append(var)
@@ -77,9 +75,9 @@ class Constraint:
                 res += " ObjectIntersectionOf("
             for j in range(len(self.vars)):
                 res += " ObjectHasValue("
-                res += ":" + self.vars[j]
+                res += ":" + self.vars[j].lower()
                 res += " "
-                res += ":" + "dominio" + "val" + str(self.values[i][j])
+                res += ":" + self.varDom[self.vars[j]].lower() + "val" + str(self.values[i][j]).lower() + ")"
             if len(self.vars) > 1:
                 res += ")"
             if self.typeCons == "Reject:\n":
@@ -100,6 +98,7 @@ class MainRun:
         self.inFileName = ""
         self.outFileName = ""
         self.domains = {}
+        self.varDom = {}
         self.fileOutOWL = None
 
     def writeDomains(self):
@@ -111,7 +110,7 @@ class MainRun:
             self.fileOutOWL.write(" ObjectIntersectionOf(")
         nConstParsed = 0
         for line in file:
-            constraint = Constraint()
+            constraint = Constraint(self.varDom)
             if("Vars:" in line):
                 if nConstParsed < nConst:
                     nVars = int(file.readline())
@@ -190,7 +189,7 @@ class MainRun:
         n = int(fileIn.readline())
         print(n)
         self.parseConstraints(fileIn,n)
-       # self.fileOutOWL.write("EquivalentClasses(:Fml")
+        self.fileOutOWL.write(")\n\n")
 
 
     def run(self):
@@ -224,6 +223,7 @@ class MainRun:
                     currV = fileIn.readline()
                     v = currV.split()
                     self.domains[v[1]].addVariable(v[0])
+                    self.varDom[v[0]] = v[1]
                 print(self.domains)
                 for _ , d in self.domains.items():
                     for v in d.vars:
