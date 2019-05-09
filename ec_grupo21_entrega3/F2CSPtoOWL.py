@@ -151,11 +151,10 @@ class MainRun:
         self.writeHashTagSeparator("Classes")
         for _ , d in self.domains.items():
             self.fileOutOWL.write("# Class: :" + d.name + " (:" + d.name + ")\n\n")
-            for v in d.vars:
-                self.fileOutOWL.write("EquivalentClasses(:" + d.name + " ObjectOneOf(:" + d.name.lower() + v + " :" + d.name.lower() + v + "))\n")
-                self.fileOutOWL.write("FunctionalObjectProperty(:" + v + ")\n")
-                self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
-                self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + "\n\n")
+            self.fileOutOWL.write("EquivalentClasses(:" + d.name + " ObjectOneOf(")
+            for val in d.values:
+                self.fileOutOWL.write(":" + d.name.lower() + "val" + str(val) + " ")
+            self.fileOutOWL.write("))\n\n")
         self.fileOutOWL.write("# Class: :Fml (:Fml)\n\n")
         self.writeFml()
         self.fileOutOWL.write("# Class: :Var (:Var)\n\n")
@@ -167,9 +166,9 @@ class MainRun:
     def writeNamesIndividuals(self):
         self.writeHashTagSeparator("Named Individuals")
         for _ , d in self.domains.items():
-            for v in d.vars:
-                self.fileOutOWL.write("# Individual: :" + d.name.lower() + v + " (:" + d.name.lower() + v + ")\n\n")
-                self.fileOutOWL.write("ClassAssertion(:" + d.name + " :" + d.name.lower() + v + ")\n\n")
+            for val in d.values:
+                self.fileOutOWL.write("# Individual: :" + d.name.lower() + "val" + str(val) + " (:" + d.name.lower() + "val" + str(val) + ")\n\n")
+                self.fileOutOWL.write("ClassAssertion(:" + d.name + " :" + d.name.lower() + "val" + str(val) + ")\n\n")
         self.fileOutOWL.write("# Individual: :fml (:fml)\n\n")
         self.fileOutOWL.write("ClassAssertion(:Fml :fml)\n")
         self.fileOutOWL.write("SameIndividual(:fml :map)\n\n")
@@ -223,8 +222,11 @@ class MainRun:
                     for v in d.vars:
                         self.fileOutOWL.write("Declaration(ObjectProperty(:" + v + "))\n")
                 for _ , d in self.domains.items():
-                    for v in d.vars:
-                        self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name + v + "))\n")
+                    for val in d.values:
+                        self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name.lower() + "val" + str(val) + "))\n")
+
+                    #for v in d.vars:
+                    #    self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name + v + "))\n")
                 self.fileOutOWL.write("Declaration(NamedIndividual(:fml))\n")
                 self.fileOutOWL.write("Declaration(NamedIndividual(:map))\n")
                 self.writeObjectProperties()
