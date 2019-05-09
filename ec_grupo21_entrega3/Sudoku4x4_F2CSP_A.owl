@@ -1,0 +1,147 @@
+Prefix(:=<http://www.semanticweb.org/group21/ontologies/2019/4/batata#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org>
+
+Declaration(Class(:D1))
+Declaration(Class(:Fml))
+Declaration(Class(:Var))
+Declaration(ObjectProperty(:v11))
+Declaration(ObjectProperty(:v12))
+Declaration(ObjectProperty(:v13))
+Declaration(ObjectProperty(:v14))
+Declaration(ObjectProperty(:v21))
+Declaration(ObjectProperty(:v22))
+Declaration(ObjectProperty(:v23))
+Declaration(ObjectProperty(:v24))
+Declaration(ObjectProperty(:v31))
+Declaration(ObjectProperty(:v32))
+Declaration(ObjectProperty(:v33))
+Declaration(ObjectProperty(:v34))
+Declaration(ObjectProperty(:v41))
+Declaration(ObjectProperty(:v42))
+Declaration(ObjectProperty(:v43))
+Declaration(ObjectProperty(:v44))
+Declaration(NamedIndividual(:D1v11))
+Declaration(NamedIndividual(:D1v12))
+Declaration(NamedIndividual(:D1v13))
+Declaration(NamedIndividual(:D1v14))
+Declaration(NamedIndividual(:D1v21))
+Declaration(NamedIndividual(:D1v22))
+Declaration(NamedIndividual(:D1v23))
+Declaration(NamedIndividual(:D1v24))
+Declaration(NamedIndividual(:D1v31))
+Declaration(NamedIndividual(:D1v32))
+Declaration(NamedIndividual(:D1v33))
+Declaration(NamedIndividual(:D1v34))
+Declaration(NamedIndividual(:D1v41))
+Declaration(NamedIndividual(:D1v42))
+Declaration(NamedIndividual(:D1v43))
+Declaration(NamedIndividual(:D1v44))
+Declaration(NamedIndividual(:fml))
+Declaration(NamedIndividual(:map))
+############################
+#   Object Properties
+############################
+
+# Object Property: :v11 (:v11)
+
+FunctionalObjectProperty(:v11)
+ObjectPropertyDomain(:v11 :Var)
+ObjectPropertyRange(:v11 :D1
+
+# Object Property: :v12 (:v12)
+
+FunctionalObjectProperty(:v12)
+ObjectPropertyDomain(:v12 :Var)
+ObjectPropertyRange(:v12 :D1
+
+# Object Property: :v13 (:v13)
+
+FunctionalObjectProperty(:v13)
+ObjectPropertyDomain(:v13 :Var)
+ObjectPropertyRange(:v13 :D1
+
+# Object Property: :v14 (:v14)
+
+FunctionalObjectProperty(:v14)
+ObjectPropertyDomain(:v14 :Var)
+ObjectPropertyRange(:v14 :D1
+
+# Object Property: :v21 (:v21)
+
+FunctionalObjectProperty(:v21)
+ObjectPropertyDomain(:v21 :Var)
+ObjectPropertyRange(:v21 :D1
+
+# Object Property: :v22 (:v22)
+
+FunctionalObjectProperty(:v22)
+ObjectPropertyDomain(:v22 :Var)
+ObjectPropertyRange(:v22 :D1
+
+# Object Property: :v23 (:v23)
+
+FunctionalObjectProperty(:v23)
+ObjectPropertyDomain(:v23 :Var)
+ObjectPropertyRange(:v23 :D1
+
+# Object Property: :v24 (:v24)
+
+FunctionalObjectProperty(:v24)
+ObjectPropertyDomain(:v24 :Var)
+ObjectPropertyRange(:v24 :D1
+
+# Object Property: :v31 (:v31)
+
+FunctionalObjectProperty(:v31)
+ObjectPropertyDomain(:v31 :Var)
+ObjectPropertyRange(:v31 :D1
+
+# Object Property: :v32 (:v32)
+
+FunctionalObjectProperty(:v32)
+ObjectPropertyDomain(:v32 :Var)
+ObjectPropertyRange(:v32 :D1
+
+# Object Property: :v33 (:v33)
+
+FunctionalObjectProperty(:v33)
+ObjectPropertyDomain(:v33 :Var)
+ObjectPropertyRange(:v33 :D1
+
+# Object Property: :v34 (:v34)
+
+FunctionalObjectProperty(:v34)
+ObjectPropertyDomain(:v34 :Var)
+ObjectPropertyRange(:v34 :D1
+
+# Object Property: :v41 (:v41)
+
+FunctionalObjectProperty(:v41)
+ObjectPropertyDomain(:v41 :Var)
+ObjectPropertyRange(:v41 :D1
+
+# Object Property: :v42 (:v42)
+
+FunctionalObjectProperty(:v42)
+ObjectPropertyDomain(:v42 :Var)
+ObjectPropertyRange(:v42 :D1
+
+# Object Property: :v43 (:v43)
+
+FunctionalObjectProperty(:v43)
+ObjectPropertyDomain(:v43 :Var)
+ObjectPropertyRange(:v43 :D1
+
+# Object Property: :v44 (:v44)
+
+FunctionalObjectProperty(:v44)
+ObjectPropertyDomain(:v44 :Var)
+ObjectPropertyRange(:v44 :D1
+

@@ -7,7 +7,7 @@ class Domain():
         
 
     def addVariable(self,variable):
-        self.vars.append(variable)
+        self.vars.append(variable.lower())
 
     def getValues(self):
         return self.values
@@ -88,12 +88,12 @@ class MainRun:
         self.inFileName = ""
         self.outFileName = ""
         self.domains = {}
-        self.fileOutRDF = None
+        self.fileOutOWL = None
         self.fileOutSPAQRL = None
 
     def writeDomains(self):
         for d in self.domains.keys():
-            self.fileOutRDF.write(str(self.domains[d]))
+            self.fileOutOWL.write(str(self.domains[d]))
 
     def parseConstraints(self, file, nConst):
         nConstParsed = 0
@@ -131,15 +131,42 @@ class MainRun:
                 self.fileOutSPAQRL.write("\t:" + key + " :values ?" + v + ".\n")
         self.fileOutSPAQRL.write("\tFILTER (\n")
 
+    def writeHashTagSeparator(self,title):
+        self.fileOutOWL.write("############################\n")
+        self.fileOutOWL.write("#   " + title + "\n")
+        self.fileOutOWL.write("############################\n\n")
+
+    def writeObjectProperties(self):
+        self.writeHashTagSeparator("Object Properties")
+        for _ , d in self.domains.items():
+            for v in d.vars:
+                self.fileOutOWL.write("# Object Property: :" + v + " (:" + v + ")\n\n")
+                self.fileOutOWL.write("FunctionalObjectProperty(:" + v + ")\n")
+                self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
+                self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + "\n\n")
+
+    def writeClasses(self):
+        self.writeHashTagSeparator("Classes")
+        for _ , d in self.domains.items():
+            for v in d.vars:
+                self.fileOutOWL.write("# Object Property: :" + v + " (:" + v + ")\n\n")
+                self.fileOutOWL.write("FunctionalObjectProperty(:" + v + ")\n")
+                self.fileOutOWL.write("ObjectPropertyDomain(:" + v +" :Var)\n")
+                self.fileOutOWL.write("ObjectPropertyRange(:" + v + " :" + d.name + "\n\n")
+
+
+
     def run(self):
         self.inFileName = input("Enter F2CSP file name:")
         self.outFileName = input("Enter output file name:")
-        self.fileOutRDF = open(self.outFileName + ".ttl","w+")
-        self.fileOutRDF.write("@prefix : <http://www.w3.org> .\n")
-        self.fileOutRDF.write("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n")
-        self.fileOutSPAQRL = open(self.outFileName + ".rq","w+")
-        self.fileOutSPAQRL.write("PREFIX : <http://www.w3.org>\n")
-        self.fileOutSPAQRL.write("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
+        self.fileOutOWL = open(self.outFileName + ".owl","w+")
+        self.fileOutOWL.write("Prefix(:=<http://www.semanticweb.org/group21/ontologies/2019/4/batata#>)\n")
+        self.fileOutOWL.write("Prefix(owl:=<http://www.w3.org/2002/07/owl#>)\n")
+        self.fileOutOWL.write("Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)\n")
+        self.fileOutOWL.write("Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)\n")
+        self.fileOutOWL.write("Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)\n")
+        self.fileOutOWL.write("Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)\n")
+        self.fileOutOWL.write("\n\nOntology(<http://www.semanticweb.org>\n\n")
 
         fileIn = open(self.inFileName, "r")
         for line in fileIn:
@@ -149,21 +176,35 @@ class MainRun:
                     currD = fileIn.readline()
                     d = currD.split()
                     self.domains[d[0]] = Domain(d[0], int(d[1][0]),int(d[1][-1]))
+                for d in self.domains.keys():
+                    self.fileOutOWL.write("Declaration(Class(:" + d + "))\n")
+                self.fileOutOWL.write("Declaration(Class(:Fml))\n")
+                self.fileOutOWL.write("Declaration(Class(:Var))\n")
+                
             if("Variables:" in line):
                 nVars = int(fileIn.readline())
                 for _ in range(nVars):
                     currV = fileIn.readline()
                     v = currV.split()
                     self.domains[v[1]].addVariable(v[0])
-                self.writeDomains()
+                print(self.domains)
+                for _ , d in self.domains.items():
+                    for v in d.vars:
+                        self.fileOutOWL.write("Declaration(ObjectProperty(:" + v + "))\n")
+                for _ , d in self.domains.items():
+                    for v in d.vars:
+                        self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name + v + "))\n")
+                self.fileOutOWL.write("Declaration(NamedIndividual(:fml))\n")
+                self.fileOutOWL.write("Declaration(NamedIndividual(:map))\n")
+                self.writeObjectProperties()
+                self.fileOutOWL.write("\n")
+                self.writeClasses()
             if("Constraints:" in line):
-                self.writeSelect()
-                self.writeWhere()
                 self.parseConstraints(fileIn,int(fileIn.readline()))
                 self.fileOutSPAQRL.write("\t)\n")
                 self.fileOutSPAQRL.write("}")
         fileIn.close()
-        self.fileOutRDF.close()
+        self.fileOutOWL.close()
         self.fileOutSPAQRL.close()
         print("SCRIPT END")
 
