@@ -5,7 +5,6 @@ class Domain():
         self.values = range(start,end+1)
         self.vars = []
         
-
     def addVariable(self,variable):
         self.vars.append(variable.lower())
 
@@ -14,13 +13,6 @@ class Domain():
 
     def getVars(self):
         return vars
-
-    def strSelectVariables(self):
-        print("vars"+str(self.vars))
-        res = ""
-        for v in self.vars:
-            res += "?" + v + " "
-        return res
 
     def __str__(self):
         res = ":" + self.name + " rdf:type :Domain ;\n" + "\t:values "
@@ -63,11 +55,6 @@ class Constraint:
         print(self.vars)
         print(self.values)
         res = ""
-        #if self.typeCons == "Reject:\n":
-         #   res += "ObjectComplementOf("
-        #if len(self.vars) > 1:
-        #    res += "ObjectIntersectionOf("
-
         for i in range(len(self.values)):
             if self.typeCons == "Reject:\n":
                 res += " ObjectComplementOf("
@@ -83,10 +70,6 @@ class Constraint:
             if self.typeCons == "Reject:\n":
                 res += ")"
 
-        #if len(self.vars) > 1:
-        #    res += ")"
-        #if self.typeCons == "Reject:\n":
-        #    res += ")"
         return res
 
 
@@ -177,7 +160,6 @@ class MainRun:
     def writeFml(self,fileIn):
         self.fileOutOWL.write("EquivalentClasses(:Fml")
         n = int(fileIn.readline())
-        print(n)
         self.parseConstraints(fileIn,n)
         self.fileOutOWL.write(")\n\n")
 
@@ -214,16 +196,12 @@ class MainRun:
                     v = currV.split()
                     self.domains[v[1]].addVariable(v[0])
                     self.varDom[v[0]] = v[1]
-                print(self.domains)
                 for _ , d in self.domains.items():
                     for v in d.vars:
                         self.fileOutOWL.write("Declaration(ObjectProperty(:" + v + "))\n")
                 for _ , d in self.domains.items():
                     for val in d.values:
                         self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name.lower() + "val" + str(val) + "))\n")
-
-                    #for v in d.vars:
-                    #    self.fileOutOWL.write("Declaration(NamedIndividual(:" + d.name + v + "))\n")
                 self.fileOutOWL.write("Declaration(NamedIndividual(:fml))\n")
                 self.fileOutOWL.write("Declaration(NamedIndividual(:map))\n")
                 self.writeObjectProperties()
