@@ -101,10 +101,6 @@ class MainRun:
         self.varDom = {}
         self.fileOutOWL = None
 
-    def writeDomains(self):
-        for d in self.domains.keys():
-            self.fileOutOWL.write(str(self.domains[d]))
-
     def parseConstraints(self, file, nConst):
         if nConst > 1:
             self.fileOutOWL.write(" ObjectIntersectionOf(")
@@ -124,12 +120,6 @@ class MainRun:
                         lineValue = file.readline().rstrip('\n')
                         constraint.addValue(lineValue.split())
                     self.fileOutOWL.write(str(constraint))
-                    if nConstParsed + 1 < nConst:
-                        print()
-                        #self.fileOutSPAQRL.write(str(constraint) + "\t\t&& \n")
-                    else:
-                        print()
-                        #self.fileOutSPAQRL.write(str(constraint))
                     nConstParsed += 1
         if nConst > 1:
             self.fileOutOWL.write(")")
@@ -139,6 +129,7 @@ class MainRun:
         self.fileOutOWL.write("############################\n")
         self.fileOutOWL.write("#   " + title + "\n")
         self.fileOutOWL.write("############################\n\n")
+
 
     def writeObjectProperties(self):
         self.writeHashTagSeparator("Object Properties")
@@ -176,7 +167,6 @@ class MainRun:
         self.fileOutOWL.write("SameIndividual(:fml :map)\n\n")
         self.fileOutOWL.write("# Individual: :map (:map)\n\n")
         self.fileOutOWL.write("ClassAssertion(:Var :map)\n")
-        #self.fileOutOWL.write("ObjectPropertyAssertion(:var11 :map :dom1val1) ... TODO\n") pistas sudoku
         self.fileOutOWL.write("\n\n")
         for _ , d in self.domains.items():
             self.fileOutOWL.write("DifferentIndividuals(")
@@ -196,13 +186,13 @@ class MainRun:
         self.inFileName = input("Enter F2CSP file name:")
         self.outFileName = input("Enter output file name:")
         self.fileOutOWL = open(self.outFileName + ".owl","w+")
-        self.fileOutOWL.write("Prefix(:=<http://www.semanticweb.org/group21/ontologies/2019/4/batata#>)\n")
+        self.fileOutOWL.write("Prefix(:=<http://www.semanticweb.org/grupo21/ontologies/2019/4/grupo21#>)\n")
         self.fileOutOWL.write("Prefix(owl:=<http://www.w3.org/2002/07/owl#>)\n")
         self.fileOutOWL.write("Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)\n")
         self.fileOutOWL.write("Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)\n")
         self.fileOutOWL.write("Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)\n")
         self.fileOutOWL.write("Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)\n")
-        self.fileOutOWL.write("\n\nOntology(<http://www.semanticweb.org>\n\n")
+        self.fileOutOWL.write("\n\nOntology(<http://www.semanticweb.org/grupo21/ontologies/2019/4/" + self.outFileName + ">\n\n")
 
         fileIn = open(self.inFileName, "r")
         for line in fileIn:
