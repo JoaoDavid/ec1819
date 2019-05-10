@@ -180,8 +180,8 @@ class MainRun:
         self.fileOutOWL.write("\n\n")
         for _ , d in self.domains.items():
             self.fileOutOWL.write("DifferentIndividuals(")
-            for v in d.vars:  
-                self.fileOutOWL.write(":" + d.name.lower() + v + " ")
+            for val in d.values: 
+                self.fileOutOWL.write(":"  + d.name.lower() + "val" + str(val) +  " ")
             self.fileOutOWL.write(")\n")
 
     def writeFml(self,fileIn):

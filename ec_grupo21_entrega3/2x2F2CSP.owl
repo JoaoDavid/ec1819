@@ -90,5 +90,5 @@ SameIndividual(:fml :map)
 ClassAssertion(:Var :map)
 
 
-DifferentIndividuals(:d1v11 :d1v12 :d1v21 :d1v22 )
+DifferentIndividuals(:d1val1 :d1val2 )
 )
